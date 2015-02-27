@@ -21,12 +21,16 @@ class ansi_str(str):
     """
     _stripped = None
 
+    @property
+    def stripped(self):
+        if self._stripped is None:
+            self._stripped = strip_ansi(self[:])
+        return self._stripped
+
     def __len__(self, exclude_ansi=True):
         if exclude_ansi is False:
             return len(self[:])
-        if self._stripped is None:
-            self._stripped = strip_ansi(self[:])
-        return len(self._stripped)
+        return len(self.stripped)
 
 
 if __name__ == '__main__':
