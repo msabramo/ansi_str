@@ -7,6 +7,10 @@ def strip_ansi(value):
     return _ansi_re.sub('', value)
 
 
+def len_exclude_ansi(value):
+    return len(strip_ansi(value))
+
+
 class Printable(str):
     """A printable string
 
@@ -33,3 +37,4 @@ print s
 print len(s)
 print s.__len__()
 print s.__len__(exclude_ansi=False)
+print(len_exclude_ansi(u'\x1b[32m\x1b[1mSUCCESS\x1b[0m'))
