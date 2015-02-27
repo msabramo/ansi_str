@@ -50,6 +50,9 @@ class ansi_str(str):
     def strip(self):
         return ansi_str(super(ansi_str, self).strip())
 
+    def splitlines(self):
+        return [ansi_str(s) for s in super(ansi_str, self).splitlines()]
+
 
 if __name__ == '__main__':
     # s = ansi_str('abc')
