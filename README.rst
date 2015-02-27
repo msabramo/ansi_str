@@ -1,6 +1,9 @@
 ansi_str
 ========
 
+You should just use https://github.com/Robpol86/colorclass
+----------------------------------------------------------
+
 An experimental Python ``str`` subclass, whose ``__len__`` method excludes ANSI
 color escape codes
 
