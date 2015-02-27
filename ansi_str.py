@@ -32,6 +32,27 @@ class ansi_str(str):
             return len(self[:])
         return len(self.stripped)
 
+    def ljust(self, width):
+        return self.stripped.ljust(width).replace(self.stripped, self)
+
+    def rjust(self, width):
+        return self.stripped.rjust(width).replace(self.stripped, self)
+
+    def center(self, width):
+        return self.stripped.center(width).replace(self.stripped, self)
+
+    def lstrip(self):
+        return ansi_str(super(ansi_str, self).lstrip())
+
+    def rstrip(self):
+        return ansi_str(super(ansi_str, self).rstrip())
+
+    def strip(self):
+        return ansi_str(super(ansi_str, self).strip())
+
+    def splitlines(self):
+        return [ansi_str(s) for s in super(ansi_str, self).splitlines()]
+
 
 if __name__ == '__main__':
     # s = ansi_str('abc')
