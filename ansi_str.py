@@ -41,6 +41,15 @@ class ansi_str(str):
     def center(self, width):
         return self.stripped.center(width).replace(self.stripped, self)
 
+    def lstrip(self):
+        return ansi_str(super(ansi_str, self).lstrip())
+
+    def rstrip(self):
+        return ansi_str(super(ansi_str, self).rstrip())
+
+    def strip(self):
+        return ansi_str(super(ansi_str, self).strip())
+
 
 if __name__ == '__main__':
     # s = ansi_str('abc')
