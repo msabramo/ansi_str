@@ -15,10 +15,11 @@ class Printable(str):
     that tries to do alignment, padding, printing in columns, etc.
 
     """
-    def __init__(self, s):
-        self._stripped = strip_ansi(s)
+    _stripped = None
 
     def __len__(self):
+        if self._stripped is None:
+            self._stripped = strip_ansi(self[:])
         return len(self._stripped)
 
 # s = Printable('abc')
