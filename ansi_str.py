@@ -11,8 +11,8 @@ def len_exclude_ansi(value):
     return len(strip_ansi(value))
 
 
-class Printable(str):
-    """A printable string
+class ansi_str(str):
+    """A str subclass, specialized for strings containing ANSI escapes.
 
     When you call the ``len`` method, it discounts ANSI color escape codes.
     This is beneficial, because ANSI color escape codes won't mess up code
@@ -28,11 +28,11 @@ class Printable(str):
             self._stripped = strip_ansi(self[:])
         return len(self._stripped)
 
-# s = Printable('abc')
+# s = ansi_str('abc')
 # print s
 # print len(s)
 
-s = Printable(u'\x1b[32m\x1b[1mSUCCESS\x1b[0m')
+s = ansi_str(u'\x1b[32m\x1b[1mSUCCESS\x1b[0m')
 print s
 print len(s)
 print s.__len__()
