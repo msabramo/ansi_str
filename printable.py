@@ -17,7 +17,9 @@ class Printable(str):
     """
     _stripped = None
 
-    def __len__(self):
+    def __len__(self, exclude_ansi=True):
+        if exclude_ansi is False:
+            return len(self[:])
         if self._stripped is None:
             self._stripped = strip_ansi(self[:])
         return len(self._stripped)
@@ -29,3 +31,5 @@ class Printable(str):
 s = Printable(u'\x1b[32m\x1b[1mSUCCESS\x1b[0m')
 print s
 print len(s)
+print s.__len__()
+print s.__len__(exclude_ansi=False)
