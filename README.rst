@@ -8,6 +8,8 @@ When you call the ``__len__`` method, it discounts ANSI color escape codes.
 This is beneficial, because ANSI color escape codes won't mess up code that
 tries to do alignment, padding, printing in columns/tables, etc.
 
+.. image:: ansi_str_example.png
+
 .. code-block:: python
 
     In [1]: from ansi_str import ansi_str
