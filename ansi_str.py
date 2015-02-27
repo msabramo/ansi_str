@@ -32,6 +32,15 @@ class ansi_str(str):
             return len(self[:])
         return len(self.stripped)
 
+    def ljust(self, width):
+        return self.stripped.ljust(width).replace(self.stripped, self)
+
+    def rjust(self, width):
+        return self.stripped.rjust(width).replace(self.stripped, self)
+
+    def center(self, width):
+        return self.stripped.center(width).replace(self.stripped, self)
+
 
 if __name__ == '__main__':
     # s = ansi_str('abc')
